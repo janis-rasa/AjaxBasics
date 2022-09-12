@@ -1,0 +1,72 @@
+@media (min-width: 992px) {
+	.nasa-submit {
+		padding-top: 2rem;
+	}	
+}
+
+.modal .img-fluid {
+	max-height: 87vh;
+}
+
+.modal .close,
+.modal .btn-close {
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+	z-index: 100;
+}
+
+.modal .close {
+	font-size: 2rem;
+	line-height: 0.1;
+}
+
+.card--nasa {
+	width: 100%;
+}
+
+.card--nasa .card-body .card-text {
+	max-height: 180px;
+	overflow: hidden;
+	cursor: pointer;
+	margin-top: auto;
+	margin-bottom: 0;
+}
+
+.card--nasa .card-body {
+	position: relative;
+}
+
+.card--nasa .btn-card {
+	z-index: 100;
+	bottom: 1.125rem;
+}
+
+.card--nasa .btn-card,
+.card--nasa .card-body .card-gradient {
+	position: absolute;
+	left: 1.125rem;
+	right: 1.125rem;
+}
+
+.card--nasa .card-body .card-gradient {
+	bottom: 1.125rem;
+	z-index: 10;
+	height: 3rem;
+	background: rgb(255,255,255);
+	background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8547794117647058) 58%, rgba(255,255,255,0) 100%);
+}
+
+.card--nasa .card-img-wrapper {
+	padding-top: 60%;
+	position: relative;
+	display: block;
+}
+
+.card--nasa .card-img-top {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	object-fit: cover;
+}

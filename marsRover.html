@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+
+		<title>Ajax basics</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="/"><strong>AJAX</strong></a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" aria-current="page" href="/">Jquery</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="/marsRover.html">Vanilla JS</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main class="container py-3">
+			<h1>Ajax with Vanilla javascript</h1>
+			<h6>Mars Rover Photos for selected days</h6>
+			<form id="formMRP" class="pt-3">
+				<div class="row">
+					<div class="col-12 col-md-4 mb-3">
+						<label for="rover" class="mb-2">Select rover</label>
+						<select class="form-select" name="rover" id="rover">
+							<option value="curiosity">Curiosity</option>
+							<option value="opportunity" selected>Opportunity</option>
+							<option value="spirit">Spirit</option>
+						</select>
+					</div>
+					<div class="col-12 col-md-4 mb-3">
+						<label for="camera" class="mb-2">Select camera</label>
+						<select class="form-select"  name="camera" id="camera" >
+							<option selected>All cameras</option>
+							<option value="FHAZ" >Front Hazard Avoidance Camera</option>
+							<option value="RHAZ">Rear Hazard Avoidance Camera</option>
+							<option value="NAVCAM">Navigation Camera</option>
+							<option value="PANCAM">Panoramic Camera</option>
+							<option value="MINITES">Miniature Thermal Emission Spectrometer (Mini-TES)</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-sm-6 col-lg-4 mb-3">
+						<div class="form-group">
+							<label for="date" class="mb-2">Date</label>
+							<input
+								type="text"
+								class="form-control"
+								id="date"
+								aria-describedby="dateHelp"
+								name="date"
+							/>
+							<small id="dateHelp" class="form-text text-muted"
+								>Date of picture</small
+							>
+						</div>
+					</div>
+					<div class="col-12 col-lg-4 nasa-submit mb-3">
+						<button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+					</div>
+				</div>
+			</form>
+			<div id="resultsMars" class="row"></div>
+		</main>
+
+		<!-- Modal for NASA element -->
+
+		<div class="modal fade" id="modalNasa" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<div id="carouselMars" class="carousel slide" data-bs-ride="carousel">
+							<div class="carousel-inner">
+							</div>
+							<button class="carousel-control-prev" type="button" data-bs-target="#carouselMars" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-bs-target="#carouselMars" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+
+		<script src="js/vanillajs_script.js" type="module"></script>
+	</body>
+</html>
