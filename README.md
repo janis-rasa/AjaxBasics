@@ -1,7 +1,5 @@
 # Various Ajax downloads
 
-https://janis-rasa.github.io/AjaxBasics/
-
 ## APOD
 
 Astronomical picture of the day for selected days using clear Jquery with Ajax and When methods.

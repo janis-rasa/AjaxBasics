@@ -6,14 +6,13 @@ export const opportunityCameras = [
 	{ value: "PANCAM", name: "Panoramic Camera" },
 	{
 		value: "MINITES",
-		name: "Miniature Thermal Emission Spectrometer (Mini-TES)	",
+		name: "Miniature Thermal Emission Spectrometer (Mini-TES)",
 	},
 ]
 export const curiosityCameras = [
 	{ value: "", name: "All cameras" },
 	{ value: "FHAZ", name: "Front Hazard Avoidance Camera" },
 	{ value: "RHAZ", name: "Rear Hazard Avoidance Camera" },
-	{ value: "NAVCAM", name: "Navigation Camera" },
 	{ value: "MAST", name: "Mast Camera" },
 	{ value: "CHEMCAM", name: "Chemistry and Camera Complex" },
 	{ value: "MAHLI", name: "Mars Hand Lens Imager" },
@@ -28,6 +27,6 @@ export const spiritCameras = [
 	{ value: "PANCAM", name: "Panoramic Camera" },
 	{
 		value: "MINITES",
-		name: "Miniature Thermal Emission Spectrometer (Mini-TES)	",
+		name: "Miniature Thermal Emission Spectrometer (Mini-TES)",
 	},
 ]

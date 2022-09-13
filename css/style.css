@@ -1,11 +1,12 @@
 @media (min-width: 992px) {
-	.nasa-submit {
+	.btn-container {
 		padding-top: 2rem;
 	}	
 }
 
 .modal .img-fluid {
 	max-height: 87vh;
+	object-fit: contain;
 }
 
 .modal .close,
@@ -69,4 +70,9 @@
 	position: absolute;
 	top: 0;
 	object-fit: cover;
+}
+
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+	background-color: rgba(0,0,0,0.1);
 }

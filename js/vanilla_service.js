@@ -6,7 +6,7 @@ export const fetchMarsPhotos = (fields, nasaApiKey) => {
 			fields.date +
 			"&api_key=" +
 			nasaApiKey +
-			(fields.camera ? "" : "&camera=" + fields.camera)
+			(!fields.camera ? "" : "&camera=" + fields.camera)
 	).then((response) => response.json())
 }
 
@@ -23,4 +23,8 @@ export const fetchRoverManifest = (roverName, nasaApiKey) => {
 			"?api_key=" +
 			nasaApiKey
 	).then((response) => response.json())
+}
+
+export const fetchNoPhotos = () => {
+	return fetch("templates/noPhotos.html").then((response) => response.text())
 }
