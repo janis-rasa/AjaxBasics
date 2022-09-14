@@ -28,3 +28,9 @@ export const fetchRoverManifest = (roverName, nasaApiKey) => {
 export const fetchNoPhotos = () => {
 	return fetch("templates/noPhotos.html").then((response) => response.text())
 }
+
+export const fetchCarouselSlide = () => {
+	return fetch("templates/carouselSlideTemplate.html").then((response) =>
+		response.text()
+	)
+}

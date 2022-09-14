@@ -5,6 +5,7 @@ import {
 	fetchCardTemplate,
 	fetchRoverManifest,
 	fetchNoPhotos,
+	fetchCarouselSlide,
 } from "./vanilla_service.js"
 import {
 	opportunityCameras,
@@ -90,7 +91,7 @@ const roverOnChange = (event) => {
 		cameraSelect.appendChild(optionClone)
 	})
 
-	getDates()
+	//getDates()
 }
 
 const submitForm = (event) => {
@@ -128,15 +129,22 @@ const createPhotoList = (response) => {
 			cardTitleSelector: ".card-title",
 			cardModalButtonSelector: ".card-img-wrapper",
 		}
-		const cardTemplate = document.createElement("div")
-		let carouselTemplate = prepareCarousel()
-		response[0].photos.map((photo, index) => {
-			processCards(photo, index, cardTemplate, cardSelectors, response[1])
-			processCarousel(photo, index, carouselTemplate)
+		fetchCarouselSlide().then((template) => {
+			processCarouselSlides(template, response, cardSelectors)
 		})
 	} else {
 		fetchNoPhotos().then((response) => (results.innerHTML = response))
 	}
+}
+
+const processCarouselSlides = (template, response, cardSelectors) => {
+	const cardTemplate = document.createElement("div")
+	let carouselWrapper = document.createElement("div")
+	carouselWrapper.innerHTML = template
+	response[0].photos.map((photo, index) => {
+		processCards(photo, index, cardTemplate, cardSelectors, response[1])
+		processCarousel(photo, index, carouselWrapper.firstChild)
+	})
 }
 
 const processCards = (photo, index, cardTemplate, cardSelectors, cardHTML) => {
@@ -151,15 +159,6 @@ const processCards = (photo, index, cardTemplate, cardSelectors, cardHTML) => {
 		cardSelectors.cardModalButtonSelector
 	).dataset.slideIndex = index
 	results.appendChild(currentCard.firstChild)
-}
-
-const prepareCarousel = () => {
-	let carouselTemplate = document.createElement("div")
-	carouselTemplate.classList.add("carousel-item", "text-center")
-	let carouselImage = document.createElement("img")
-	carouselImage.classList.add("img-fluid")
-	carouselTemplate.appendChild(carouselImage)
-	return carouselTemplate
 }
 
 const startCarousel = (event) => {
@@ -185,6 +184,7 @@ const processCarousel = (photo, index, carouselTemplate) => {
 
 const getDates = () => {
 	getDatesButton.setAttribute("disabled", true)
+	getDatesButton.innerHTML = "Loading dates, please wait"
 	const roverName = roverSelect.value
 	fetchRoverManifest(roverName, nasaApiKey).then((response) => {
 		roverPhotosInfo = response.photo_manifest.photos
@@ -197,6 +197,8 @@ const getDates = () => {
 		getDatesButton.parentElement.classList.add("d-none")
 		dateInput.parentElement.classList.remove("d-none")
 		getDatesButton.removeAttribute("disabled")
+		getDatesButton.innerHTML = "Get dates for selected rover"
+		datepicker.show()
 	})
 }
 
